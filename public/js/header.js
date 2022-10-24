@@ -1,9 +1,10 @@
-//let url = "http://127.0.0.1:3001";
 const jwt = localStorage.getItem("x-access-token");
 setHeader(jwt);
 
 async function setHeader(jwt){
     if(!jwt){
+        alert('로그인이 필요합니다.');
+        location.replace('/login');
         return false;
     }
     fetch("/jwt",{
@@ -31,23 +32,16 @@ async function setHeader(jwt){
     console.log(hostName);
     spanNickname.innerHTML = hostName;
 
-
-//    const userData = {
-//         userIdx : userIdx,
-//         userName: userName
-//    }
-
     return true;
 
     });
 }
 
+// 로그아웃 
 const btnSignout=document.querySelector("#sign-out");
 btnSignout.addEventListener("click",signOut);
 function signOut(){
     localStorage.removeItem("x-access-token");
-    localStorage.removeItem("userIdx");
-     location.reload(); //새로고침
+    localStorage.removeItem("hosIdx");
+    location.replace("/login");
     }
-
-    // export {userData};

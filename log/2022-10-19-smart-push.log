@@ -1,0 +1,6 @@
+{"level":"info","message":"API server start at port 3000","timestamp":"2022-10-19 14:45:23"}
+{"level":"info","message":"API server start at port 3000","timestamp":"2022-10-19 15:04:18"}
+{"level":"info","message":"API server start at port 3000","timestamp":"2022-10-19 15:26:52"}
+{"level":"info","message":"API server start at port 3000","timestamp":"2022-10-19 22:21:05"}
+{"level":"error","message":"createJwtDB Connection error\n: {\"errorno\":\"ETIMEDOUT\",\"code\":\"ETIMEDOUT\",\"syscall\":\"connect\",\"fatal\":true}","timestamp":"2022-10-19 22:21:33"}
+{"level":"error","message":"createJwtDB Connection error\n: {\"errorno\":\"ETIMEDOUT\",\"code\":\"ETIMEDOUT\",\"syscall\":\"connect\",\"fatal\":true}","timestamp":"2022-10-19 22:21:37"}

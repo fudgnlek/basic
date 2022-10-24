@@ -20,26 +20,27 @@ function login(){
     const req = {
         hosID : hosID.value,
         password :password.value,
-       };
-       console.log(req);
+    };
+    console.log(req);
     
-       fetch("/login",{
+    fetch("/login",{
         method : "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body : JSON.stringify(req),
-       })
-       .then((response) => response.json())
-       .then((data) => {
-           if(data.code!=200){
-               return alert("아이디 비밀번호를 다시 입력하세요");
-           }
-           const jwt = data.result.jwt;
-           localStorage.setItem("x-access-token",jwt);
-           alert(data.message);
-           return location.replace("/reservation");
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        if(data.code!=200){
+            return alert("아이디 비밀번호를 다시 입력하세요");
+        }
+        const jwt = data.result.jwt;
+        console.log(data);
+        localStorage.setItem("x-access-token",jwt);
+        alert(data.message);
+        return location.replace("/reservation");
         });
 
-       
+    
 }

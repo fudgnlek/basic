@@ -1,0 +1,2 @@
+{"level":"info","message":"API server start at port 3000","timestamp":"2022-10-20 18:29:07"}
+{"level":"error","message":"createJwtDB Connection error\n: {\"errorno\":\"ETIMEDOUT\",\"code\":\"ETIMEDOUT\",\"syscall\":\"connect\",\"fatal\":true}","timestamp":"2022-10-20 18:29:56"}

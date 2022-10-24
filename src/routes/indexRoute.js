@@ -19,4 +19,4 @@ module.exports = function(app){
     app.post("/getInfo", index.getInfo);
     //유저조회
     //app.get("/users", index.readUsers);
-   };
+};

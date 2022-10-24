@@ -25,17 +25,6 @@ for(var i=0; i<category.length; i++) {
     }
 }
 
-
-
-// 로그아웃 버튼 이벤트 연결
-// const btnSignOut = document.querySelector("#sign-out");
-// btnSignOut.addEventListener("click",signOut);
-// // 로그아웃
-// function signOut(event){
-//     localStorage.removeItem("x-access-token");
-//     location.replace("/login");
-// }
-
 var psword = 0;
 
 function check(){
@@ -79,35 +68,6 @@ function is_checked(){
         return true;
     }   
 }
-
-// function cate_checked() {
-//     var obj_length = document.getElementsByName("category").length;
-//     for (var i=0; i<obj_length; i++) {
-//         category_cheked = document.getElementsByName("category")[i].value;
-//         console.log(category_cheked);
-//         if (document.getElementsByName("category")[i].checked == true) {
-//            console.log(document.getElementsByName("category")[i].value);
-//            //console.log(category_cheked);
-
-//         }
-//     }
-// }
-
-
-
-// function cate_checked(){
-//     for (var i = 0, length = radios.length; i < length; i++) {
-//         if (radios[i].checked) {
-//             // do whatever you want with the checked radio
-//             alert(radios[i].value);
-
-//             // only one radio can be logically checked, don't check the rest
-//             break;
-//         }
-//     }
-//     return true;
-// }
-
 
 function signup(){
    const req = {
