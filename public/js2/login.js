@@ -1,13 +1,15 @@
 "use strict";
-const hosID = document.querySelector("#id");
+const userID = document.querySelector("#id");
 const password = document.querySelector("#pw");
 const loginBtn = document.querySelector("#loginBtn");
 
 loginBtn.addEventListener("click",login);
 
+
 function refreshPage(){
     window.location.reload();
 } 
+
 
 function login(){
 
@@ -18,12 +20,12 @@ function login(){
     // 로그인 api 요청
 
     const req = {
-        hosID : hosID.value,
+        userID : userID.value,
         password :password.value,
     };
     console.log(req);
     
-    fetch("/hospital/login",{
+    fetch("/user/login",{
         method : "POST",
         headers: {
             "Content-Type": "application/json"
@@ -36,10 +38,9 @@ function login(){
             return alert("아이디 비밀번호를 다시 입력하세요");
         }
         const jwt = data.result.jwt;
-        console.log(data);
         localStorage.setItem("x-access-token",jwt);
         alert(data.message);
-        return location.replace("/hospital/reservation");
+        return location.replace("/user/main");
         });
 
     

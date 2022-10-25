@@ -6,15 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/15a9419d1c.js" crossorigin="anonymous"></script>
-    <script src="/js/login.js" defer></script>
-    
-    <link href="/css/hospital1.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/login2.css">
-    <title>login</title>
-
-
+    <link href="/css/hospital1.css" rel="stylesheet">
+    <script src="/js/basic.js" defer></script>
+    <title>Document</title>
 </head>
-
 <body>
     <!--Header 부분-->
     <header class="p-3 text-bg-white">
@@ -33,59 +28,57 @@
 
     <!--Navigation bar 부분-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
-        <div class="container">
-        <a class="navbar-brand" href="#" onclick="refreshPage()">
-            <i class="fa-solid fa-house text-white"></i>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarsExample07">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="javascript:void(0);" onclick="alert('로그인이 필요합니다.')">Hospital</a>
-            </li>
-            
-
-            <li class="nav-item" id="id1" style="margin-left: 950px;">
-                <a class="nav-link text-white" href="#;" onclick="refreshPage()"><i class="fa-solid fa-square" id="squ"></i>Login</a>
+        <div class="container" style="margin-left:250px">
+            <a class="navbar-brand" href="#" onclick="refreshPage()">
+                <i class="fa-solid fa-house text-white"></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarsExample07">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 
-            </li>
-            <li class="nav-item" id="id2">
-                <a class="nav-link text-white" href="/signup"><i class="fa-solid fa-square" id="squ"></i>Sign-up</a>
-            </li>
+                <!-- <li class="nav-item" id="id1" style="margin-left: 150px;">
+                    <a class="nav-link text-white" href="/user"><i class="fa-solid fa-square" id="squ"
+                        ></i>USER</a>
+                    
+                </li>
+                <li class="nav-item" id="id2" style="width: 130px; margin-left: 190px;">
+                    <a class="nav-link text-white" href="/hospital"><i class="fa-solid fa-square" id="squ"
+                        ></i>HOSPITAL</a>
+                </li> -->
 
-        </div>
+            </div>
         </div>
     </nav>
-    
-    <!--Body 부분-->
-    <div class="container1">
-        <div class="h3 border-bottom border-secondary" id="h1">로그인</div>
-
-        <div class="form-floating" id="log">
-            <input id="id" type="text" class="form-control" placeholder="ID">
-            <label for="floatingInput">아이디를 입력하세요.</label>
+            
+    <div class="container1" style="display:flex; width: 80%;  margin-left: 180px;
+    margin-top: 20px; flex-direction: column; justify-content: center; align-items: center;  ">
+        <div class="content" style=" font-size: 50px; margin-left: 0px; text-align: center;">
+            <strong style="font-size: 50px;">Kubernetis 클라우드 환경</strong> 에서의 <br>
+            <strong style="font-size: 50px;">MSA 기반</strong> 병원 예약 시스템 
         </div>
-        <div class="form-floating" style="margin-bottom: 30px;">
-            <input id="pw" type="password" class="form-control" placeholder="Password">
-            <!--  id="floatingInput" id="floatingPassword" -->
-            <label for="floatingPassword">비밀번호를 입력하세요.</label>
+        <div class="content" style=" margin-left: 0px; text-align: center; margin-top: 20px;">
+            전자정보공학부 ( IT융합 )<br>
+                20192564 강은영<br>
+                20192568 공령휘
+        </div>
+
+        <div class="btn1">
+            <button id="sbtn" style="margin-right: 30px" onclick="location.href='/user'">USER</button>
+            <button id="sbtn" onclick="location.href='/hospital'">HOSPITAL</button>
         </div>
         
-        <button class="w-30 btn btn-lg btn-dark text-white" type="submit" id="loginBtn">로그인</button>
-        <a href="/signup" id="gosignup">회원가입하러 가기 (Hospital)▶</a>
         
     </div>
 
-    <!--Footer 부분-->
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-muted">&copy; 2022 Graduation Work</p>
     
         <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
             <i id='info' class="fa-solid fa-circle-info"></i>
         </a>
         
@@ -96,8 +89,8 @@
         </ul>
         </footer>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
-
 
 </html>

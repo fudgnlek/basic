@@ -1,0 +1,65 @@
+*{
+    font-family: '나눔바른고딕';
+}
+.container1{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#h1{
+    text-align: center;
+    width: 83%;
+    font-size: 35px;
+    margin-top: 40px;
+    padding-bottom: 13px;
+    
+}
+.container2{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    /*display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;*/
+
+    width: 75%;
+    height: 650px;
+}
+
+#calendar {
+    margin-right: 10px;
+    height: 100%;
+    
+    
+}
+/* 일요일 날짜 빨간색 */
+.fc-day-sun a {
+    color: red;
+    text-decoration: none;
+}
+
+/* 토요일 날짜 파란색 */
+.fc-day-sat a {
+    color: blue;
+    text-decoration: none;
+}
+
+.fc-day-mon a,
+.fc-day-tue a,
+.fc-day-wed a,
+.fc-day-thu a,
+.fc-day-fri a
+{
+    color: rgb(33,37,41);
+    text-decoration: none;
+}
+/*.list{
+    margin-left: 10px;
+    border: 2px solid rgb(33,37,41);
+    border-radius: 3px;
+    width: 50%;
+}*/
+

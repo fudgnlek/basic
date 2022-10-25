@@ -1,0 +1,75 @@
+*{
+    font-family: '나눔바른고딕';
+}
+.container1{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#h1{
+    text-align: center;
+    width: 83%;
+    font-size: 35px;
+    margin-top: 35px;
+    padding-bottom: 13px;
+}
+#log2{
+    width: 30%;
+    padding: 5px;
+    text-align: center;
+
+}
+#log{
+    margin-top: 20px;
+    width: 30%;
+    padding: 5px;
+    text-align: center;
+}
+.checkbox{
+    margin-top: 5px;
+}
+#signupBtn{
+    width: 30%;
+    margin: 10px;
+}
+.container1 a{
+    margin-top: 20px;
+    color: gray;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 5px;
+}
+.container1 a:hover{
+    color: black;
+
+}
+.container2{
+    display: flex;
+    width: 40%;
+    align-items: center;
+    margin-bottom: 10px;
+}
+#pw{
+    margin-left: 72px;
+    width: 73.6%;
+    text-align: center;
+}
+.check{
+    color: gray;
+    font-size: 13px;
+    margin-top: 3px;
+}
+.check:hover{
+    color: black;
+}
+#che{
+    margin-top: 5px;
+}
+.container1 p{
+    color: gray;
+    text-align: center;
+    font-size: 10px;
+}

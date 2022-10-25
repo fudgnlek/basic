@@ -7,17 +7,20 @@ const indexDao = require("../dao/indexDao");
   
 const output = {
 
-    signup : async function(req,res){
-        return res.render('main/signup.ejs');
-    },
+      basic : async function(req,res){
+              return res.render('main/basic.ejs');
+      },
+  //   signup : async function(req,res){
+  //       return res.render('main/signup.ejs');
+  //   },
 
-    login : async function(req,res){
-        return res.render('main/login2.ejs');
-    },
+  //   login : async function(req,res){
+  //       return res.render('main/login2.ejs');
+  //   },
 
-    reservation : async function(req,res){
-      return res.render('reservation/reservation_h.ejs');
-  },
+  //   reservation : async function(req,res){
+  //     return res.render('reservation/reservation_h.ejs');
+  // },
 
 
 }
@@ -127,8 +130,89 @@ const process = {
       return false;  
     }
     
-     },
-}
+    },
+
+    getHosIdx : async function(req,res){
+      const {hosName} = req.body;
+      if(!hosName){
+        return res.send({
+          isSuccess: false,
+          code: 400,
+          message: "회원정보를 입력해주세요",
+        });
+      }
+    try{
+      const connection = await pool.getConnection(async (conn)=>conn);
+      try{
+        const [rows]=await indexDao.isValidHos(connection, hosName);
+        console.log(rows);
+        //DB 회원 검증
+        if(rows.length <1){
+          return res.send({
+            isSuccess: false,
+            code: 410,
+            message: "해당 병원에 대한 정보가 존재하지 않습니다."
+          });
+        }
+        //login pw 확인 알고리즘 추가하기
+        const {hosIdx} = rows[0];
+
+        return res.send({
+          isSuccess: true,
+          code: 200, // 요청 실패시 400번대 코드
+          message: "요청 성공",
+          result : hosIdx ,
+        });
+      } 
+    catch(err){
+      logger.error(`createhosDB Query error\n: ${JSON.stringify(err)}`)
+      return false;
+    }finally {
+      connection.release();
+    }
+  } catch(err){
+    logger.error(`createhosDB Connection error\n: ${JSON.stringify(err)}`);
+    return false;  
+  }
+  
+  },
+
+  reservation : async function(req,res){
+    const {hosIdx, Date,Time,userIdx,userName, userNum, userBirth} = req.body;
+
+    if(!hosIdx || !Date || !Time ||! userIdx ||!userName || !userNum || !userBirth){
+      return res.send({
+        isSuccess: false,
+        code: 400,
+        message: "회원정보를 입력해주세요",
+      });
+    }
+    try {
+      const connection = await pool.getConnection(async (conn) => conn);
+      try {
+        const [rows] = await indexDao.insertReserv( connection, hosIdx, Date,Time,userIdx,userName, userNum, userBirth);
+        //console.log(rows);
+        return res.send({
+          result: {rows},
+          isSuccess: true,
+          code: 200,
+          message: "회원가입 성공",
+        });
+      } catch (err) {
+        logger.error(`insertReserv Query error\n: ${JSON.stringify(err)}`);
+        return res.send({    
+          code: 400         
+        });
+     
+      } finally {
+        connection.release();
+      }
+    } catch (err) {
+      logger.error(`insertReserv DB Connection error\n: ${JSON.stringify(err)}`);
+      return false;
+    }
+  }
+};
 
 
 const readUsers = async function(req,res){
@@ -199,11 +283,34 @@ const getInfo = async function(req,res){
     }
 };
 
+const getResInfo = async function(req,res){
+  const {userIdx} = req.body;
+  try {
+    const connection = await pool.getConnection(async (conn) => conn);
+    try {
+      const [rows] = await indexDao.selectUserRes(connection,userIdx);
+    
+      return res.send(
+        {
+        result: rows,
+        isSuccess: true,
+        code: 200, // 요청 실패시 400번대 코드
+        message: "요청 성공",
+      }
+      );
+    } catch (err) {
+      logger.error(`selectUserRes Query error\n: ${JSON.stringify(err)}`);
+    } finally {
+      connection.release();
+    }
+  } catch (err) {
+    logger.error(`selectUserRes DB Connection error\n: ${JSON.stringify(err)}`);
+    return false;
+  }
 
-
-
+}
 
 
 module.exports = {
-  readJwt, readUsers, output, process, getInfo
+  readJwt, readUsers, output, process, getInfo, getResInfo
 }

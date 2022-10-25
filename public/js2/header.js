@@ -1,13 +1,18 @@
+
 const jwt = localStorage.getItem("x-access-token");
 setHeader(jwt);
+
+
+const btnSignout=document.querySelector("#sign-out");
+btnSignout.addEventListener("click",signOut);
 
 async function setHeader(jwt){
     if(!jwt){
         alert('로그인이 필요합니다.');
-        location.replace('/hospital/login');
+        location.replace('/user/login');
         return false;
     }
-    fetch("/hospital/jwt",{
+    fetch("/user/jwt",{
         method : "GET",
         headers: { 
         "x-access-token": jwt
@@ -23,25 +28,24 @@ async function setHeader(jwt){
         }
     //유효한 토큰일 경우
 
-    const hosIdx = data.result.hosIdx;
-    const hostName = data.result.hosName;
-    //console.log(hosIdx);
-    window.localStorage.setItem("hosIdx",hosIdx);
-    // const userName = data.result.userName;
+    const userIdx = data.result.userIdx;
+    window.localStorage.setItem('userIdx', userIdx);
+    const userName = data.result.userName;
+    
+
+    // 닉네임 들어가는 부분에 유저 이름 넣기 
     const spanNickname = document.querySelector(".nickname");
-    console.log(hostName);
-    spanNickname.innerHTML = hostName;
+    spanNickname.innerHTML = userName;
 
     return true;
 
+    // localStorage.setItem("x-access-token",jwt);
+    // alert(data.message);
+    // return location.replace("/main");
     });
 }
 
-// 로그아웃 
-const btnSignout=document.querySelector("#sign-out");
-btnSignout.addEventListener("click",signOut);
 function signOut(){
     localStorage.removeItem("x-access-token");
-    localStorage.removeItem("hosIdx");
-    location.replace("/hospital/login");
+    location.replace('/user/login');
     }

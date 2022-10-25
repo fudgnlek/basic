@@ -1,0 +1,70 @@
+*{
+    font-family: '나눔바른고딕';
+}
+.container1{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#h1{
+    text-align: center;
+    width: 83%;
+    font-size: 35px;
+    margin-top: 0px;
+    padding-bottom: 13px;
+}
+.form-floating{
+    width: 30%;
+    padding: 5px;
+    text-align: center;
+
+}
+#log{
+    margin-top: 50px;
+}
+.checkbox{
+    margin-top: 5px;
+}
+#loginBtn{
+    width: 30%;
+}
+.container1 a{
+    font-size: 13px;
+    color: gray;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 5px;
+}
+#gosignup{
+    margin-top: 10px;
+}
+.container1 a:hover{
+    color: black;
+
+}
+.dropdown-button{
+    color: white;
+    margin-top: 7px;
+    font-size: 17px;
+}
+#sign-out{
+    color: white;
+    background-color: rgb(33,37,41);
+    border:none;
+}
+
+.dropdown-content{
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 13px;
+
+}
+#direct{
+    font-size: 8px;
+}
+#sign-out:hover{
+    color: gray;
+}

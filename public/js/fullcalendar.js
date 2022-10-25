@@ -2,7 +2,7 @@ const getIdx = async () => {
     if(!jwt){
         return false;
     }
-    const res = await fetch("/jwt",{
+    const res = await fetch("/hospital/jwt",{
         method : "GET",
         headers: { "x-access-token": jwt}});
     const data = await res.json();
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // data 받아온 부분
         const req = { hosIdx : idx };    
-        fetch("/getInfo",{
+        fetch("/hospital/getInfo",{
             method : "POST",
             headers: {
                 "Content-Type": "application/json"
